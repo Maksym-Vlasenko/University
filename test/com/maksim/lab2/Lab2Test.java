@@ -69,7 +69,9 @@ class Lab2Test {
         double step = 0.01;
         double[] xValues = lab2.calculateXValues(leftBound, rightBound, step);
         double[] actualYValues = lab2.calculateYValues(xValues);
-        double maxY = lab2.findMaxY(actualYValues);
+        int maxYOrdinal = lab2.findMaxElementOrdinal(actualYValues);
+        double maxY = actualYValues[maxYOrdinal];
+
         assertEquals(maxY, 8.06225774829835);
     }
 
@@ -80,8 +82,9 @@ class Lab2Test {
         double step = 0.01;
         double[] xValues = lab2.calculateXValues(leftBound, rightBound, step);
         double[] actualYValues = lab2.calculateYValues(xValues);
-        double minY = lab2.findMinY(actualYValues);
-        assertEquals(minY, -0.06689484864237705);
+        int minYOrdinal = lab2.findMinElementOrdinal(actualYValues);
+        double minY = actualYValues[minYOrdinal];
+        assertEquals(minY, -1.1991405194806009);
     }
 
     @Test
@@ -91,8 +94,7 @@ class Lab2Test {
         double step = 0.01;
         double[] xValues = lab2.calculateXValues(leftBound, rightBound, step);
         double[] actualYValues = lab2.calculateYValues(xValues);
-        double maxY = lab2.findMaxY(actualYValues);
-        int maxYOrdinal = lab2.findElementOrdinal(actualYValues, maxY);
+        int maxYOrdinal = lab2.findMaxElementOrdinal(actualYValues);
         assertEquals(maxYOrdinal, 400);
     }
 
@@ -103,9 +105,8 @@ class Lab2Test {
         double step = 0.01;
         double[] xValues = lab2.calculateXValues(leftBound, rightBound, step);
         double[] actualYValues = lab2.calculateYValues(xValues);
-        double minY = lab2.findMinY(actualYValues);
-        int minYOrdinal = lab2.findElementOrdinal(actualYValues, minY);
-        assertEquals(minYOrdinal, 0);
+        int minYOrdinal = lab2.findMinElementOrdinal(actualYValues);
+        assertEquals(minYOrdinal, 140);
     }
 
     @Test
@@ -116,7 +117,7 @@ class Lab2Test {
         double[] xValues = lab2.calculateXValues(leftBound, rightBound, step);
         double[] actualYValues = lab2.calculateYValues(xValues);
         double sumY = lab2.sum(actualYValues);
-        assertEquals(sumY, 1107.9785875414868);
+        assertEquals(sumY, 1106.7767174281025);
     }
 
     @Test
@@ -128,6 +129,6 @@ class Lab2Test {
         double[] actualYValues = lab2.calculateYValues(xValues);
         double sumY = lab2.sum(actualYValues);
         double average = sumY / actualYValues.length;
-        assertEquals(average, 2.7630388716745307);
+        assertEquals(average, 2.760041689346889);
     }
 }
