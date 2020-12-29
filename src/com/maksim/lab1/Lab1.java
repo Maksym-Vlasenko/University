@@ -46,11 +46,11 @@ public class Lab1 {
     }
 
     private double calculateS(float a, float b, float t) {
-        return b * sin(a * pow(t, 2) * cos(2 * t)) - 1;
+        return b * sin(a * t * t * cos(2 * t)) - 1;
     }
 
     private double calculateY(float a, float b, float t) {
-        return pow(E, -(b * t)) * sin(a * t + b) - sqrt(abs(b * t + a));
+        return exp(-(b * t)) * sin(a * t + b) - sqrt(abs(b * t + a));
     }
 
     private float readNumber() {
