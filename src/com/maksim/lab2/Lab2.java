@@ -40,7 +40,7 @@ public class Lab2 {
         } else if (DoubleUtils.equals(x, a)) {
             y = x * Math.sin(a * x);
         } else {
-            y = Math.pow(Math.E, -(a * x)) * Math.cos(a * x);
+            y = Math.exp(-(a * x)) * Math.cos(a * x);
         }
         return y;
     }
