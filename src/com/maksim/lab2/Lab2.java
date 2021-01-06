@@ -46,12 +46,7 @@ public class Lab2 {
     }
 
     public int countSteps(double leftBound, double rightBound, double step) {
-        int stepsCount = 0;
-        for (double counter = leftBound; DoubleUtils.lessOrEqual(counter, rightBound); counter += step) {
-
-            stepsCount++;
-        }
-        return stepsCount;
+        return (int) ((rightBound - leftBound) / step) + 1;
     }
 
     public double[] calculateYValues(double[] xValues) {
@@ -65,8 +60,8 @@ public class Lab2 {
     public double[] calculateXValues(double leftBound, double rightBound, double step) {
         int stepsCount = countSteps(leftBound, rightBound, step);
         double[] results = new double[stepsCount];
-        for (double counter = leftBound, i = 0; DoubleUtils.lessOrEqual(counter, rightBound); counter += step, i++) {
-            results[(int) i] = counter;
+        for (int i = 0; i < stepsCount; i++) {
+            results[i] = leftBound + (i * step);
         }
         return results;
     }
